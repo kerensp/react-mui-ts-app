@@ -1,10 +1,11 @@
 /* eslint-disable linebreak-style */
-import MenuLateral from "./components/MenuLateral";
 
-function App(): JSX.Element {
+export const App = () => { 
   return (
-    <MenuLateral />
+    <div className="App">
+      App
+    </div>
   );
-}
+};
 
 export default App;
