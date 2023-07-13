@@ -1,5 +1,4 @@
 import React from "react";
-import logo from "../assets/logo.svg";
 import {
   AppBar,
   Box,
@@ -20,7 +19,6 @@ import { rrhhList } from "./rrhhList";
 import MenuIcon from "@mui/icons-material/Menu";
 import { BreadcrumbsComponent } from "./Breadcrumbs";
 import ProfileComponent from "./Profile";
-import settings from "../assets/settings.svg";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import Usuarios from "./Usuarios";
 
@@ -41,7 +39,7 @@ export default function ResponsiveDrawer(props: Props) {
   const drawer = (
     <div>
       <Box sx={{ ml: 3, mt: 5, mr: 3, mb: 4 }}>
-        <img src={logo} />
+        <img src="../assets/logo.svg" />
       </Box>
       <List>
         <Typography color="#CBC7CF" textTransform="uppercase" pl={3}>
@@ -139,7 +137,7 @@ export default function ResponsiveDrawer(props: Props) {
             />
           </IconButton>
           <IconButton sx={{ ml: 1, mr: 2, cursor: "default" }}>
-            <img src={settings}></img>
+            <img src="../assets/settings.svg" />
           </IconButton>
           <ProfileComponent />
         </Toolbar>

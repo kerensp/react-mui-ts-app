@@ -1,3 +1,4 @@
+/* eslint-disable linebreak-style */
 import MenuLateral from "./components/MenuLateral";
 
 function App(): JSX.Element {
