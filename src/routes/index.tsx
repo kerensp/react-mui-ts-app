@@ -1,10 +1,11 @@
+import { Button } from "@mui/material";
 import { Navigate, Route, Routes } from "react-router-dom";
 
 
 export const AppRoutes = () => { 
     return (
         <Routes>
-            <Route path="/initial-page" element={<p>Initial Page</p>} /> 
+            <Route path="/initial-page" element={<Button variant="contained" color="primary">Pruebas</Button>} /> 
             <Route path="*" element={<Navigate to="/initial-page" />} />
         </Routes>
     );
@@ -12,6 +13,7 @@ export const AppRoutes = () => {
 
 /* 
 La primera ruta, <Route path="/initial-page" element={<p>Initial Page</p>} />, establece una ruta para la página inicial de la aplicación. Cuando el usuario visita la URL "/initial-page", se renderiza un elemento de párrafo que dice "Initial Page". El elemento JSX <p> es el contenido que se muestra en la página.
+<Route path="/initial-page" element={<Button>Pruebas</Button>} /> boton que dice pruebas
 
 La segunda ruta, <Route path="*" element={<Navigate to="/initial-page" />} />, establece una ruta para todas las demás URL que no coincidan con la primera ruta definida. El path * coincidirá con cualquier URL que no haya sido definida en otras rutas.
 
