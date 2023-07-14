@@ -1,28 +1,30 @@
-import { Button } from "@mui/material";
-import { Navigate, Route, Routes } from "react-router-dom";
-import { useAppThemeContext } from "../shared/contexts";
+import { Button } from '@mui/material';
+import { Navigate, Route, Routes } from 'react-router-dom';
+import { useAppThemeContext } from '../shared/contexts';
 
 export const AppRoutes = () => {
   const { toggleTheme } = useAppThemeContext();
 
+  //La línea de código const { toggleTheme } = useAppThemeContext(); desestructura el objeto que devuelve el hook useAppThemeContext y obtiene la función toggleTheme del contexto del tema de la aplicación. De esta manera, la función toggleTheme se puede utilizar en el componente para cambiar el tema de la aplicación cuando sea necesario.
+
   return (
     <Routes>
       <Route
-        path="/initial-page"
+        path='/initial-page'
         element={
-          <Button variant="contained" color="primary" onClick={toggleTheme}>
+          <Button variant='contained' color='primary' onClick={toggleTheme}>
             Pruebas
           </Button>
         }
       />
-      <Route path="*" element={<Navigate to="/initial-page" />} />
+      <Route path='*' element={<Navigate to='/initial-page' />} />
     </Routes>
   );
 };
 
 /* 
 La primera ruta, <Route path="/initial-page" element={<p>Initial Page</p>} />, establece una ruta para la página inicial de la aplicación. Cuando el usuario visita la URL "/initial-page", se renderiza un elemento de párrafo que dice "Initial Page". El elemento JSX <p> es el contenido que se muestra en la página.
-<Route path="/initial-page" element={<Button>Pruebas</Button>} /> boton que dice pruebas
+<Route path="/initial-page" element={<Button>Pruebas</Button>} /> boton que dice pruebas cuando se da click se cambia el tema
 
 La segunda ruta, <Route path="*" element={<Navigate to="/initial-page" />} />, establece una ruta para todas las demás URL que no coincidan con la primera ruta definida. El path * coincidirá con cualquier URL que no haya sido definida en otras rutas.
 
