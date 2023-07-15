@@ -1,4 +1,21 @@
-#Practicing react with mui and typescript
+# Practicing react with mui and typescript
+
+## Table of contents
+
+- [Overview](#overview)
+  - [Folders](#folders)
+  - [Screenshot](#screenshot)
+- [My process](#my-process)
+  - [Built with](#built-with)
+
+## Overview
+
+### Folders
+
+*CARPETA MOCK*
+
+La carpeta "mock" se utiliza para almacenar archivos que simulan la respuesta de una API o servicio externo, lo que permite a los desarrolladores trabajar en la aplicación sin depender de la disponibilidad o estabilidad del servicio externo.
+
 
 *CARPETA PAGES*
 
@@ -39,3 +56,15 @@ En estos archivos o módulos de servicio, se suele utilizar bibliotecas o herram
 
 - THEMES
 La carpeta themes se utiliza para almacenar los diferentes temas o estilos visuales de una aplicación web y para definir y aplicar el estilo visual correspondiente. La utilización de temas facilita la personalización de la interfaz de usuario y hace que sea más fácil crear una interfaz de usuario coherente y consistente en toda la aplicación.
+
+### Screenshot
+
+
+## My process
+
+### Built with
+
+- [React.js](https://react.dev/) - Frontend library
+- [TypeScript](https://www.typescriptlang.org/) - TypeScript is a strongly typed programming language that builds on JavaScript
+- Semantic HTML5 markup
+- [MUI](https://mui.com/) - UI Framework
