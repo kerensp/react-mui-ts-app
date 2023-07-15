@@ -7,16 +7,16 @@ interface IToolBarsProps {
   onChangeSearchText?: (newText: string) => void;
   newTextButton?: string;
   showNewButton?: boolean;
-  onClickNew?: () => void;
+  onClickNewButton?: () => void;
 }
 
 export const ToolBars: React.FC<IToolBarsProps> = ({
   searchText = '',
   showSearchInput = false,
   onChangeSearchText: whenChangingSearchText,
-  newTextButton: newButtonText = '',
+  newTextButton: newButtonText = 'New',
   showNewButton = true,
-  onClickNew: whenClickingNew,
+  onClickNewButton: whenClickingNew,
 }) => {
   const theme = useTheme();
 

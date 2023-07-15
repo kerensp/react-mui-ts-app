@@ -1,12 +1,64 @@
-import { Box, Button, Divider, Paper, useTheme } from '@mui/material';
+import {
+  Box,
+  Button,
+  Divider,
+  Paper,
+  Skeleton,
+  Theme,
+  useMediaQuery,
+  useTheme,
+} from '@mui/material';
 import SaveIcon from '@mui/icons-material/Save';
-import AssignmentReturnIcon from '@mui/icons-material/AssignmentReturn';
 import DeleteIcon from '@mui/icons-material/Delete';
 import AddIcon from '@mui/icons-material/Add';
 import KeyboardReturnIcon from '@mui/icons-material/KeyboardReturn';
 
-export const ToolBarsDetails: React.FC = () => {
+interface IToolBarsDetailsProps {
+  newTextButton: string;
+
+  showSaveButton?: boolean;
+  showSaveAndCloseButton?: boolean;
+  showDeleteButton?: boolean;
+  showNewButton?: boolean;
+  showReturnButton?: boolean;
+
+  showSaveButtonLoading?: boolean;
+  showSaveAndCloseButtonLoading?: boolean;
+  showDeleteButtonLoading?: boolean;
+  showNewButtonLoading?: boolean;
+  showReturnButtonLoading?: boolean;
+
+  onClickSaveButton?: () => void;
+  onClickSaveAndCloseButton?: () => void;
+  onClickDeleteButton?: () => void;
+  onClickNewButton?: () => void;
+  onClickReturnButton?: () => void;
+}
+
+export const ToolBarsDetails: React.FC<IToolBarsDetailsProps> = ({
+  newTextButton = 'New',
+
+  showSaveButton = true,
+  showSaveAndCloseButton = false,
+  showDeleteButton = true,
+  showNewButton = true,
+  showReturnButton = true,
+
+  showSaveButtonLoading = false,
+  showSaveAndCloseButtonLoading = false,
+  showDeleteButtonLoading = false,
+  showNewButtonLoading = false,
+  showReturnButtonLoading = false,
+
+  onClickSaveButton,
+  onClickSaveAndCloseButton,
+  onClickDeleteButton,
+  onClickNewButton,
+  onClickReturnButton,
+}) => {
   const theme = useTheme();
+  const smDown = useMediaQuery((theme: Theme) => theme.breakpoints.down('sm'));
+  const mdDown = useMediaQuery((theme: Theme) => theme.breakpoints.down('md'));
 
   return (
     <Box
@@ -18,29 +70,78 @@ export const ToolBarsDetails: React.FC = () => {
       display={'flex'}
       alignItems={'center'}
       gap={1}>
+      {showSaveButton && !showSaveButtonLoading && (
+        <Button
+          color='primary'
+          variant='contained'
+          disableElevation
+          startIcon={<SaveIcon />}
+          onClick={onClickSaveButton}>
+          Save
+        </Button>
+      )}
+      {showSaveButtonLoading && <Skeleton width={110} height={60} />}
 
-      <Button color='primary' variant='contained' disableElevation startIcon={<SaveIcon />}>
-        Save
-      </Button>
+      {(showSaveAndCloseButton && !showSaveAndCloseButtonLoading && !smDown && !mdDown) && 
+        (
+          <Button
+            color='primary'
+            variant='outlined'
+            disableElevation
+            startIcon={<SaveIcon />}
+            onClick={onClickSaveAndCloseButton}>
+            save and close
+          </Button>
+        )
+      }
+      {showSaveAndCloseButtonLoading && !smDown && !mdDown && (
+        <Skeleton width={180} height={60} />
+      )}
 
-      <Button color='primary' variant='outlined' disableElevation startIcon={<AssignmentReturnIcon />}>
-        save and return
-      </Button>
+      {showDeleteButton && !showDeleteButtonLoading && (
+        <Button
+          color='primary'
+          variant='outlined'
+          disableElevation
+          startIcon={<DeleteIcon />}
+          onClick={onClickDeleteButton}>
+          delete
+        </Button>
+      )}
+      {showDeleteButtonLoading && <Skeleton width={110} height={60} />}
 
-      <Button color='primary' variant='outlined' disableElevation startIcon={<DeleteIcon />}>
-        delete
-      </Button>
+      {showNewButton && !showNewButtonLoading && !smDown && (
+        <Button
+          color='primary'
+          variant='outlined'
+          disableElevation
+          startIcon={<AddIcon />}
+          onClick={onClickNewButton}>
+          {newTextButton}
+        </Button>
+      )}
+      {showNewButtonLoading && <Skeleton width={110} height={60} />}
 
-      <Button color='primary' variant='outlined' disableElevation startIcon={<AddIcon />}>
-        New
-      </Button>
+      {
+        (
+          showReturnButton &&
+          (showDeleteButton || showNewButton || showSaveAndCloseButton || showSaveButton)
+        ) && (
+          <Divider variant='middle' orientation='vertical' />
+        )
+      }
 
-      <Divider variant='middle' orientation='vertical' />
-
-      <Button color='primary' variant='outlined' disableElevation startIcon={<KeyboardReturnIcon />}>
-        return
-      </Button>
-
+      {showReturnButton && !showReturnButtonLoading && (
+        <Button
+          color='primary'
+          variant='outlined'
+          disableElevation
+          startIcon={<KeyboardReturnIcon />}
+          onClick={onClickReturnButton}>
+          return
+        </Button>
+      )}
+      {showReturnButtonLoading && <Skeleton width={110} height={60} />}
     </Box>
   );
 };
