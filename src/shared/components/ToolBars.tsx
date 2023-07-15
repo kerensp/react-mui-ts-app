@@ -45,7 +45,7 @@ export const ToolBars: React.FC<IToolBarsProps> = ({
             color='primary'
             disableElevation
             variant='contained'
-            endIcon={<AddIcon />}
+            startIcon={<AddIcon />}
             onClick={whenClickingNew}>
             {newButtonText}
           </Button>
